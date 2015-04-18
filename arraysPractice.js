@@ -2,9 +2,9 @@
 
 
 var arr = [10,20,30];
-//Create a function named 'first' that is given 'arr' as the argument and  returns the first item the given array.
+//Create a function named 'first' that is given 'arr' as the argument and returns the first item the given array.
 
-var myFunc = function (arr){
+var first = function (arr){
   return arr[0];
 }
 
@@ -17,11 +17,12 @@ var arr = [40,50,60];
 //Create a function named 'last' that is given 'arr' as the argument and returns the last item the given array.
 
 
- var myFunc = function (arr){
+ var last = function (arr){
   return arr[arr.length - 1]
  }
 
 myFunc(arr)
+
 
 //Next Problem
 
@@ -50,6 +51,7 @@ var reversedLooper = function(letters) {
   }
 }
 
+//for (var i = arrlength - 1; i >= 0; i--) {}
 
 //Next Problem
 
@@ -66,7 +68,18 @@ var evenFinder = function (someNums) {
     }
   }  
 }
+// for (i = arr.length - 1; i>= 0; i--) {
+//if (arr[i] % 2) {
+  //arr.splice(i, 1);
+//}
+//return arr;
+//}
 
+// //for (var i = 0; i < arr.length; i++){
+//   while (arr[i] % 2) {
+//     arr.splice(i, 1);
+//   }
+// }
 
 //Next problem
 
@@ -88,6 +101,27 @@ var divider = function(x, y, z) {
   }  
 }
 
+//var divider = function(arr, evens, odds){
+  //for (i = 0; i < arr.length; i++){
+    //if (arr[i] % 2) {
+//       odds.push(arr[i]);
+//     } else {
+//       evens.push(arr[i]);
+//     }
+//   }
+//   return [odds, evens]; 
+// }
+
+// for (var i = arr.length -1; i >= 0; i--){
+//   if (arr[i] % 2) {
+//     odds.push(arr.splice(i, 1));
+//   } else {
+//     evens.push(arr.splice(i, 1));
+//   }
+//   return [evens, odds];
+// }
+
+// how do i get the vars or arrays that i create in my functions out of the function?  What is the rule for local values moving to another scope? 
 //Next Problem
 
 
@@ -98,8 +132,39 @@ var numbers = [0,3,4,5,6,7,9,14,17,24,25,26,29,30];
 //Above you're given a function that will return a random number between 0 and 30, and an array full or numbers. Your job is to write a function named finder that will get a random number, then loop through the array to see if that random number is in the array. If it is, return true, if it's not, return false
 
 
+  var finder = function(theNums) {
+    findMe = getRandomArbitrary();
+    for (i = 0; i < theNums.length; i++) {
+      if (theNums[i] === findMe){
+        alert("true");
+        return true
+        /break;/
+      }
+      alert("false");
+      return false
+      break;
+      }
+    }
+  }
 
+// var finder = function(arr, val) {
+//     for (var i = 0; i < arr.length; i++) {
+//       if (arr[i] === val) {
+//         return true;
+//       }
+//    }
+//    return false;
+// }
 
+// var finder = functino(arr) {
+//   var randomNum = getRandomArbitrary();
+//   for (var i = 0; i < arr.length; i++){
+//     if (arr[i] === randomNum) {
+//       return true;
+//     }
+//   }
+//   return false;
+// }
 //Next problem
 
 
@@ -111,7 +176,10 @@ var iReverse = function(myVar) {
   (myVar).split('').reverse().join('');
 }
 
-
+// var iReverse = function(str){
+//   return str.split('').reverse().join('');
+// }
+// alert(reverse('ab'));
 //Next Problem
 
 
@@ -129,8 +197,31 @@ var myGroceryList = ['chips', 'pizza', 'hotpockets', 'MtnDew', 'corndogs'];
   myGroceryList then return the new, updated grocery list.
 */
 
-  //Code Here
+//var removeItem = function (list, toRemove) {
+//   for(i = 0; i < list.length; i++) {
+//     if(toRemove === list[i]){
 
+//     }
+//   }
+// }
+var removeItem = function(list, toRemove){
+    for(var i in list){
+        if(list[i]===toRemove){
+            list.splice(i,1);
+            break;
+            }
+    }
+}
+
+var addItem = function(list, toAdd){
+  list.push(toAdd);
+}
+//for (var i = arr.length -1; i >= 0; i--) {
+//   if (arr[i] === str) {
+//     arr.splice(i, 1);
+//   }
+// }
+// return arr;
 //removeItem('chips') --> ['pizza', 'hotpockets', 'MtnDew', 'corndogs'];
 //addItem('Jerky') --> ['pizza', 'hotpockets', 'MtnDew', 'corndogs', 'Jerky'];
 
@@ -142,14 +233,22 @@ var myGroceryList = ['chips', 'pizza', 'hotpockets', 'MtnDew', 'corndogs'];
 
 //Write a function called maker that creates an array, fills that array with numbers from 1 to 215, then returns the array.
 
-  var fills = [];
-  var maker = function(stuff) {
-    for (i = 0; i < 214; i++) {
-      var 
+  
+  var maker = function() {
+    fills = [];
+    for (i = 0; i < fills.length; i++) {
+      fills.push([i]);
+      return fills;
     }
   }
 
-
+// var maker = function (){
+//   var arr = [];
+//   for (var i = 1; i <=215; i++){
+//     arr.push(i);
+//   }
+//   return arr;
+// }
 
 //Next Problem
 
@@ -158,9 +257,19 @@ var numbers = [5, '9', 16, 19, '25', '34', 48];
 //Write a function called addTen that is given 'numbers' as it's only argument and returns a new
 //array after adding ten to each item in numbers. *Verify your answer is correct. --> [15, 19, 26, 29, 35, 44, 58]
 
-  //Code Here
+var addTen = function (someArray) {
+  var addMe = parseInt(someArray);
+  someArray.push[addMe];
+  return someArray;
+}
 
-
+//var addTen = function(arr) {
+//   for (var i = 0; i < arr.length; i++){
+//     arr.[i] = parseInt(arr[i]) + 10;
+//   }
+//   return arr;
+// }
+// maybe try += to perform the addition
 
 //Next Problem
 
@@ -179,12 +288,31 @@ for(var i = 0; i < num2; i++){
 //Above is some code that adds a random number to both arr1 and arr2.
 //Write a function that is given arr1 and arr2 is it's only arguments. Return the array which is longest.
 
-  //Code Here
-
+var longest = function(arr1, arr2){
+  if(arr1.length > arr2.length){
+    return arr1;
+  } else if (arr1.length < arr2.length){
+    return arr2;
+  } else{
+    return null;
+  }
+}
 
 /*As a continuation of the previous problem, write another function called 'both'.
   Your 'both' function will be given two arguments, arr1 and arr2 (from the previous example)
   'both' should return a new array full of numbers that are found in both arr1 and arr2.
 */
 
-  //Code Here
+//  var longest = function () {...}
+//  var both = function(arr1, arr2){
+//    for (var i = 0; i < arr1.length; i++) {
+//       for (var j = 0; j < arr2.length; i++){
+//         if (arr1[i] === arr2[j]){
+//           duplicates.push(arr1[i]);
+
+//         }
+//       }
+//    }
+//   return duplicates;
+// }
+
